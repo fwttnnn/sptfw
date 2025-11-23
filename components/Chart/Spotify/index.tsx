@@ -159,7 +159,7 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                 x={x(r)}
                 y={-10}
                 textAnchor="middle"
-                fill="#fff"
+                fill="currentColor"
                 fontSize={12}
               >
                 {r === 0 ? "00" : r}
