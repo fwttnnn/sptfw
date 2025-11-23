@@ -3,6 +3,8 @@
 import gsap from "gsap";
 import { useRef } from "react"
 
+import Link from "next/link";
+
 import * as d3 from "d3";
 import spotify from "@/data/spotify";
 
@@ -126,16 +128,22 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <image
-                      ref={ref}
-                      href={t.album.images[0].url}
-                      x={x(r) - rectSize / 2}
-                      y={15 + i * (rectSize + rectSpacing)}
-                      width={rectSize}
-                      height={rectSize}
-                      preserveAspectRatio="xMidYMid slice"
-                      // preserveAspectRatio="cover"
-                    />
+                    <Link
+                      href={t.external_urls.spotify}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <image
+                        ref={ref}
+                        href={t.album.images[0].url}
+                        x={x(r) - rectSize / 2}
+                        y={15 + i * (rectSize + rectSpacing)}
+                        width={rectSize}
+                        height={rectSize}
+                        preserveAspectRatio="xMidYMid slice"
+                        // preserveAspectRatio="cover"
+                      />
+                    </Link>
                   </g>
                 )
               })}
