@@ -2,6 +2,8 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 import { ReactLenis as Lenis } from "lenis/react";
+
+import Header from "@/components/Header";
 import Tooltip from "@/components/Tooltip";
 
 import { Viaoda_Libre, Plus_Jakarta_Sans } from "next/font/google";
@@ -33,6 +35,7 @@ export default ({ children }: Readonly<{ children: React.ReactNode }>) => {
           className={`${fonts.map((f) => f.variable).join(" ")} max-w-[570px] mx-auto my-15 py-5 px-7.5 antialiased`}
         >
           <Tooltip />
+          <Header />
           {children}
         </body>
       </Lenis>
