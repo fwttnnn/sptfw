@@ -6,7 +6,7 @@ import { useRef } from "react"
 import Link from "next/link";
 
 import * as d3 from "d3";
-import spotify from "@/data/spotify";
+import spotify from "@/data/spotify.json";
 
 import useTooltip from "@/hooks/useTooltip";
 
@@ -88,7 +88,37 @@ export default ({ data, width = 500, height = 500 }: Args) => {
               key={`${r}-root`}
             >
               {tracks.map((t, i) => {
-                const ref = useRef<SVGImageElement | null>(null)
+                const ref = useRef(null)
+
+                const Album = ({ url }: { url: string }) => {
+                  if (!url) {
+                    return (
+                      <rect
+                        ref={ref}
+                        x={x(r) - rectSize / 2}
+                        y={15 + i * (rectSize + rectSpacing)}
+                        width={rectSize}
+                        height={rectSize}
+                        fill="transparent"
+                        stroke="currentColor"
+                        strokeWidth={1}
+                      />
+                    )
+                  }
+
+                  return (
+                    <image
+                      ref={ref}
+                      href={url}
+                      x={x(r) - rectSize / 2}
+                      y={15 + i * (rectSize + rectSpacing)}
+                      width={rectSize}
+                      height={rectSize}
+                      preserveAspectRatio="xMidYMid slice"
+                      // preserveAspectRatio="cover"
+                    />
+                  )
+                }
 
                 const handleMouseEnter = () => {
                   setTooltip(true, t)
@@ -129,20 +159,11 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <Link
-                      href={t.external_urls.spotify}
+                      href={t.url}
                       rel="noopener noreferrer"
                       target="_blank"
                     >
-                      <image
-                        ref={ref}
-                        href={t.album.images[0].url}
-                        x={x(r) - rectSize / 2}
-                        y={15 + i * (rectSize + rectSpacing)}
-                        width={rectSize}
-                        height={rectSize}
-                        preserveAspectRatio="xMidYMid slice"
-                        // preserveAspectRatio="cover"
-                      />
+                      <Album url={t.album.images[0].url} />
                     </Link>
                   </g>
                 )

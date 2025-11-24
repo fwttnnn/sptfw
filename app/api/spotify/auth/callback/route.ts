@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 
+import redis from "@/lib/redis"
 import api from "@/lib/spotify/api"
 import pkce from "@/lib/spotify/pkce"
 
@@ -16,6 +17,12 @@ export const GET = async (request: NextRequest) => {
 
   const _access = token["access_token"]
   const profile = await api.profile(_access)
+
+  const top = await api.top(_access, 1)
+  await redis.set(`sptfw:${profile.id}`, top, {
+    ex: 3 * 3600, // 3 hour(s)
+  })
+
   const response = NextResponse.redirect("http://127.0.0.1:3000")
 
   response.cookies.set("sptfw--cookie:token/access", token["access_token"], {

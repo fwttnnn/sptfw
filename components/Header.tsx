@@ -32,7 +32,7 @@ export default async () => {
         className="flex justify-end gap-4 px-12"
       >
         <Link
-          href={profile.id}
+          href={profile.url}
           target="_blank"
           rel="noopener noreferrer"
         >
