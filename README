@@ -1,4 +1,28 @@
 sptfw
 -----
 
-spotify wrapped (data viz challenge '2025)
+Spotify wrapped (data viz challenge '2025)
+
+Prerequisite
+------------
+
+You need to have two accounts setup for:
+
+    - Spotify Web API <https://developer.spotify.com>
+    - Upstash <https://upstash.com/>
+
+Read the docs, and get Spotify's API client id along with the
+client secret. Next, you need to sign up for a free tier Redis
+server provided by Upstash, and put the secrets on to the
+environment variables (.env) file.
+
+Quick Start
+-----------
+
+Install the dependencies using your favorite package manager:
+
+    yarn install
+
+Start the app:
+
+    yarn dev
