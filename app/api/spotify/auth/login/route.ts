@@ -12,7 +12,7 @@ export const GET = async (request: NextRequest) => {
   const challenge = await pkce.generateCodeChallenge(verifier)
 
   const spotifyAuthorizeURL = await pkce.generateAuthorizeURL(process.env.SPTFW_API_CID!,
-                                              "http://127.0.0.1:3000/api/spotify/auth/callback",
+                                              `${process.env.SPTFW_HOST_URI!}/api/spotify/auth/callback`,
                                               scopes,
                                               challenge)
 

@@ -13,7 +13,7 @@ export const GET = async (request: NextRequest) => {
   }
 
   const verifier = request.cookies.get("sptfw--cookie:verifier")?.value
-  const token = await pkce.getToken(process.env.SPTFW_API_CID!, code, verifier!, "http://127.0.0.1:3000/api/spotify/auth/callback")
+  const token = await pkce.getToken(process.env.SPTFW_API_CID!, code, verifier!, `${process.env.SPTFW_HOST_URI!}/api/spotify/auth/callback`)
 
   const _access = token["access_token"]
   const profile = await api.profile(_access)
@@ -23,7 +23,7 @@ export const GET = async (request: NextRequest) => {
     ex: 3 * 3600, // 3 hour(s)
   })
 
-  const response = NextResponse.redirect("http://127.0.0.1:3000")
+  const response = NextResponse.redirect(process.env.SPTFW_HOST_URI!)
 
   response.cookies.set("sptfw--cookie:token/access", token["access_token"], {
     httpOnly: true,
