@@ -6,7 +6,7 @@ import { useRef } from "react"
 import Link from "next/link";
 
 import * as d3 from "d3";
-import spotify from "@/data/spotify.json";
+import spotify from "@/data/spotify";
 
 import useTooltip from "@/hooks/useTooltip";
 

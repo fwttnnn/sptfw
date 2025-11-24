@@ -5,7 +5,7 @@ import useProfile from "@/hooks/useProfile"
 
 import redis from "@/lib/redis"
 import api from "@/lib/spotify/api";
-import spotify from "@/data/spotify.json";
+import spotify from "@/data/spotify";
 
 const _getData = async () => {
   const profile = await useProfile()
