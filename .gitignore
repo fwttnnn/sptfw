@@ -10,8 +10,8 @@
 !.yarn/releases
 !.yarn/versions
 
-!data/spotify.ts
 data/**/*
+!data/spotify.json
 
 # testing
 /coverage

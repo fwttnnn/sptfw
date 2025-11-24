@@ -1,5 +1,5 @@
 import fs from "fs"
-import spotify from "../data/spotify.js"
+import spotify from "../data/spotify.json"
 
 spotify.items = spotify.items.map((t) => {
   return {
@@ -27,4 +27,4 @@ spotify.items = spotify.items.map((t) => {
   }
 })
 
-fs.writeFileSync("data/spotify.ts", "export default " + JSON.stringify(spotify, null, 2), "utf-8")
+fs.writeFileSync("data/_spotify.json", JSON.stringify(spotify, null, 2), "utf-8")
