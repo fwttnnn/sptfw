@@ -1,10 +1,21 @@
 import fs from "fs"
-import spotify from "../data/spotify.json"
+import spotify from "../data/spotify.js"
 
-spotify.items = spotify.items.map((t) => {
+const EMOJIS = [
+  "🎵","🎶","🎧","🎤","📀","💿","🎹","🥁","🎸","🎻",
+  "🎷","🎺","🪗","🪘","🪕","✨","⭐","🌟","💫","🔥",
+  "⚡","🌈","🌙","☀️","🌤️","⛅","☁️","🌧️","❄️","🌬️",
+  "🍀","🌿","🍃","🌸","🌺","🌼","🌻","🌙","🌕","🌑",
+  "💥","🌀","⭕","🟣","🔵","🟢","🟡","🟠","🔴","⚪",
+  "⚫","⬛","⬜","🔶","🔷","🔸","🔹","🔺","🔻","⭐",
+  "🌠","🎇","🎆","🎉","🎊","🪅","🎁","🧩","🎯","🎲",
+  "🎭","📣","🔊","📡","🛰️","💡","🛸","🚀","🎈","💭"
+]
+
+spotify.items = spotify.items.map((t, i) => {
   return {
     // name: t.name,
-    name: "❓",
+    name: EMOJIS[i],
     popularity: t.popularity,
     // url: t.external_urls.spotify,
     url: "/api/spotify/auth/login",
