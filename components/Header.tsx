@@ -10,7 +10,7 @@ export default async () => {
     const img = (
       <Image
         src={profile.pict}
-        alt={"?"}
+        alt={""}
         width={31}
         height={31}
       />
