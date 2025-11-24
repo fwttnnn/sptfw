@@ -16,9 +16,9 @@ export const GET = async (request: NextRequest) => {
   const token = await pkce.getToken(process.env.SPTFW_API_CID!, code, verifier!, `${process.env.SPTFW_HOST_URI!}/api/spotify/auth/callback`)
 
   const _access = token["access_token"]
-  const profile = await api.profile(_access)
+  const profile = await api.user.profile(_access)
 
-  const top = await api.top(_access, 1)
+  const top = await api.user.top(_access, 1)
   await redis.set(`sptfw:${profile.id}`, top, {
     ex: 3 * 3600, // 3 hour(s)
   })

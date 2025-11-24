@@ -1,7 +1,13 @@
-import profile from "@/lib/spotify/api/users/profile"
-import top from "@/lib/spotify/api/users/top"
+import refresh from "@/lib/spotify/api/token/refresh"
+import profile from "@/lib/spotify/api/user/profile"
+import top from "@/lib/spotify/api/user/top"
 
 export default {
-  profile,
-  top,
+  token: {
+    refresh,
+  },
+  user: {
+    profile,
+    top,
+  },
 }
