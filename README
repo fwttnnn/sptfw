@@ -23,6 +23,6 @@ Install the dependencies using your favorite package manager:
 
     yarn install
 
-Start the app:
+Start the app, and head to https://127.0.0.1:3000/:
 
     yarn dev
