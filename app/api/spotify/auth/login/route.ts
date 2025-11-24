@@ -8,8 +8,8 @@ export const GET = async (request: NextRequest) => {
                   // "user-read-recently-played",
                   "user-library-read"]
 
-  const verifier = pkce.generateCodeVerifier(128);
-  const challenge = await pkce.generateCodeChallenge(verifier);
+  const verifier = pkce.generateCodeVerifier(128)
+  const challenge = await pkce.generateCodeChallenge(verifier)
 
   const spotifyAuthorizeURL = await pkce.generateAuthorizeURL(process.env.SPTFW_API_CID!,
                                               "http://127.0.0.1:3000/api/spotify/auth/callback",

@@ -1,12 +1,12 @@
-import "./globals.css";
+import "./globals.css"
 
-import type { Metadata } from "next";
-import { ReactLenis as Lenis } from "lenis/react";
+import type { Metadata } from "next"
+import { ReactLenis as Lenis } from "lenis/react"
 
-import Header from "@/components/Header";
-import Tooltip from "@/components/Tooltip";
+import Header from "@/components/Header"
+import Tooltip from "@/components/Tooltip"
 
-import { Viaoda_Libre, Plus_Jakarta_Sans } from "next/font/google";
+import { Viaoda_Libre, Plus_Jakarta_Sans } from "next/font/google"
 
 const _01 = Viaoda_Libre({
   weight: "400",

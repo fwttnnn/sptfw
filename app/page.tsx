@@ -4,8 +4,8 @@ import Chart from "@/components/Chart"
 import useProfile from "@/hooks/useProfile"
 
 import redis from "@/lib/redis"
-import api from "@/lib/spotify/api";
-import spotify from "@/data/spotify";
+import api from "@/lib/spotify/api"
+import spotify from "@/data/spotify"
 
 const _getData = async () => {
   const profile = await useProfile()

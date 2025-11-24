@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
-import * as d3 from "d3";
-const tj: any = {};
+import * as d3 from "d3"
+const tj: any = {}
 
 export type Args = {
   data: any,
@@ -19,17 +19,17 @@ export type Args = {
 export default ({ data, width = 500, height = 500, ...svgProps }: Args) => {
   const margin = 10
 
-  const routeId = "1R";
-  const route = tj.routes.find((r: any) => r.route_id === routeId);
-  if (!route) throw new Error("Route not found");
+  const routeId = "1R"
+  const route = tj.routes.find((r: any) => r.route_id === routeId)
+  if (!route) throw new Error("Route not found")
 
-  const trip = tj.trips.find((t: any) => t.route_id === routeId);
-  if (!trip) throw new Error("Trip not found");
+  const trip = tj.trips.find((t: any) => t.route_id === routeId)
+  if (!trip) throw new Error("Trip not found")
 
-  const shapeId = trip.shape_id;
+  const shapeId = trip.shape_id
   const shapePoints = tj.shapes
     .filter((s: any) => s.shape_id === shapeId)
-    .sort((a: any, b: any) => a.shape_pt_sequence - b.shape_pt_sequence);
+    .sort((a: any, b: any) => a.shape_pt_sequence - b.shape_pt_sequence)
 
   const stopIds = tj.stoptimes
     .filter((s: any) => s.trip_id == trip.trip_id)
@@ -57,14 +57,14 @@ export default ({ data, width = 500, height = 500, ...svgProps }: Args) => {
       route_name: route.route_long_name || route.route_short_name,
       route_color: route.route_color
     }
-  };
+  }
 
   const projection = d3.geoMercator()
     .fitExtent([[margin, margin], [width - margin, height - margin]], routeShape)
 
   const pathGenerator = d3.geoPath().projection(projection)
 
-  const projectedStops = routeStops.map((s: any) => projection([s.stop_lon, s.stop_lat]));
+  const projectedStops = routeStops.map((s: any) => projection([s.stop_lon, s.stop_lat]))
 
   const margin2 = margin + 9
   const projection2 = d3.geoMercator()

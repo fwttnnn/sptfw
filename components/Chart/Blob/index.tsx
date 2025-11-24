@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import * as d3 from "d3"
 
 export type Args = {
   data: {[category: number | string]: {[sub: number | string]: number}},
@@ -13,7 +13,7 @@ export default ({ data, size = 40, width = 500, height = 400 }: Args) => {
 
   const r = d3.scaleLinear()
     .domain([0, d3.max(catg.flatMap((c) => subg.map((s) => data[c][s]))) || 1]) // avoid 0 max
-    .range([0, size]);
+    .range([0, size])
 
   const x0 = d3
     .scaleBand()

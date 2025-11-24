@@ -1,14 +1,14 @@
 "use client"
 
-import gsap from "gsap";
+import gsap from "gsap"
 import { useRef } from "react"
 
-import Link from "next/link";
+import Link from "next/link"
 
-import * as d3 from "d3";
-import spotify from "@/data/spotify";
+import * as d3 from "d3"
+import spotify from "@/data/spotify"
 
-import useTooltip from "@/hooks/useTooltip";
+import useTooltip from "@/hooks/useTooltip"
 
 export type Args = {
   data: typeof spotify,
@@ -74,13 +74,13 @@ export default ({ data, width = 500, height = 500 }: Args) => {
               const albumA = a.album.name
               const albumB = b.album.name
 
-              const albumCmp = albumA.localeCompare(albumB);
-              if (albumCmp !== 0) return albumCmp;
+              const albumCmp = albumA.localeCompare(albumB)
+              if (albumCmp !== 0) return albumCmp
 
               /**
                * NOTE: compare by track name (title)
                */
-              return a.name.localeCompare(b.name);
+              return a.name.localeCompare(b.name)
             })
 
           return (
