@@ -23,6 +23,11 @@ This app uses supabase to collect telemetry data for academic
 research purposes, it is optional and will be removed later (in
 about ~2 months after the app is officially launched to public).
 
+You can remove the following .env variables to opt out telemetry:
+
+    - SPTFW_SUPABASE_URL
+    - SPTFW_SUPABASE_KEY
+
 Quick Start
 -----------
 
