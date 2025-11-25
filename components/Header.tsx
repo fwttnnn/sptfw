@@ -5,21 +5,11 @@ import useProfile from "@/hooks/useProfile"
 
 export default async () => {
   const profile = await useProfile()
+  const authenticated: boolean = profile.id ? true : false
 
-  const _Image = () => {
-    const img = (
-      <Image
-        src={profile.pict}
-        alt={""}
-        width={31}
-        height={31}
-      />
-    )
-
-    return (!profile.id
-      ? <Link href="/api/spotify/auth/login">{img}</Link>
-      : img)
-  }
+  // if (!authenticated) {
+  //   return <></>
+  // }
 
   return (
     <header
@@ -42,7 +32,12 @@ export default async () => {
             {profile.usn}'s
           </span>
         </Link>
-        <_Image />
+        <Image
+          src={profile.pict}
+          alt={""}
+          width={31}
+          height={31}
+        />
       </div>
     </header>
   )

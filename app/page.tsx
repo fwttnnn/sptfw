@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
@@ -58,6 +59,44 @@ const _getData = async () => {
 }
 
 export default async () => {
+  const authenticated: boolean = (await useProfile()).id ? true : false
+
+  const Body = async () => {
+    if (!authenticated) {
+      return (
+        <div
+          className="mx-12 my-3.5"
+        >
+          <p
+            className="text-xl"
+          >
+            get yours now, {""}
+            <Link
+              href={"/api/spotify/auth/login"}
+              className="underline"
+              style={{
+                color: "#1ed760"
+              }}
+            >
+              login
+            </Link>
+            {""} using spotify
+          </p>
+        </div>
+      )
+    }
+
+    return (
+      <div
+        className="flex flex-col items-center justify-center"
+      >
+        <Chart.Spotify
+          data={await _getData()}
+        />
+      </div>
+    )
+  }
+
   return (
     <main>
       <div
@@ -68,13 +107,7 @@ export default async () => {
         >
           spotify wrapped
         </h1>
-        <div
-          className="flex flex-col items-center justify-center"
-        >
-          <Chart.Spotify
-            data={await _getData()}
-          />
-        </div>
+        <Body />
       </div>
     </main>
   )

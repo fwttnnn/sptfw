@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   description: "spotify wrapped (data viz challenge '2025)",
 }
 
-export default ({ children }: Readonly<{ children: React.ReactNode }>) => {
+export default async ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <Lenis root>
