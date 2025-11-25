@@ -19,8 +19,9 @@ environment variables (.env) file.
 Database
 --------
 
-We use supabase, but you don't need to set up anything. The
-database is used to obtain observational data (optionally).
+This app uses supabase to collect telemetry data for academic
+research purposes, it is optional and will be removed later (in
+about ~2 months after the app is officially launched to public).
 
 Quick Start
 -----------
