@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1.5cm, columnsep=.8cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx}
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{icomma}
+\usepackage[indonesian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[numbers,sort&compress]{natbib}
+
+\input{config.tex}
+
+\linespread{1}
+
+\begin{document}
+\title{\includegraphics[width=5cm]{images/logo.png} \\ Spotify Wrapped: Seberapa \\ Pasaran Selera Musik Kamu?}
+\author{%
+Kelompok \group\\[.8em]
+\begin{tabular}{@{}l r@{}}
+\authorname{1} & (\authorid{1}) \\
+\authorname{2} & (\authorid{2}) \\
+\authorname{3} & (\authorid{3}) \\
+\authorname{4} & (\authorid{4}) \\
+\end{tabular}
+}
+\date{\today}
+\maketitle
+\vfill
+\renewcommand\abstractname{Abstrak}
+\section*{\abstractname}
+\textit{If you only had 2 minutes to explain the work to a colleague, what should he/she know?}
+\thispagestyle{empty}
+
+\tableofcontents
+\thispagestyle{empty}
+\cleardoublepage
+\pagenumbering{arabic} 
+\newpage
+
+\twocolumn
+
+\section{Pendahuluan}
+Musik merupakan bagian penting dari kehidupan sehari-hari, tiap
+individu pastinya memiliki selera musik yang berbeda, contohnya
+tiap orang mempunyai ketertarikan terhadap genre musik tertentu
+\cite{han2022universality, dunn2012toward} seperti \textit{pop},
+\textit{rock}, \textit{rnb}, dan banyak lagi. Tidak hanya dibatasi
+dengan sekedar genre tertentu, kita sebagai makhluk sosial
+cenderung suka mengikuti tren yang sedang populer, hal ini juga
+melekat pada bagaimana cara kita mendengarkan musik. Oleh karena
+itu, diperlukan visualisasi untuk memahami seberapa ``pasaran''
+(\textit{mediocre}) selera musik seseorang dalam rentang waktu
+tertentu.
+
+Berbagai metode visualisasi telah dikembangkan untuk menampilkan
+pola preferensi musik \cite{han2022universality}, contohnya mulai
+dari grafik (\textit{chart}) \textit{Bubble}, \textit{Polar},
+\textit{Bar}, dan banyak lagi. Akan tetapi, visualisasi ini biasanya
+bersifat statis sehingga memberi kesan monoton \cite{bako2023user}.
+Selain itu, hanya sedikit kostumisasi yang bisa dilakukan untuk
+menyesuaikan grafik sesuai kebutuhan; misalnya ketika ingin membuat
+antarmuka web, format output sering terbatas pada gambar (png, jpeg).
+Hal ini dapat menimbulkan kerepotan karena visualisasi harus digambar
+berulang kali.
+
+Maka dari itu, kami merakit aplikasi visualisasi berupa poster interaktif
+dengan antarmuka web menggunakan pustaka \texttt{d3} \cite{bostock2011d3}
+sebagai alat bantu untuk menggambar grafik secara otomatis. Dengan memanfaatkan
+teknologi web, kita dapat merakit alat tambahan (seperti telemetri, opsi
+real-time). Hal ini dapat memudahkan pengembang dalam menyesuaikan visualisasi
+berdasarkan umpan balik oleh pengguna dengan tepat dan efisien.
+
+\section{Metodologi}
+\textit{What are the important physical principles?}\\
+
+\section{Eksperimen}
+\textit{What would someone need to reproduce the experiment?}\\
+
+\subsection{Dataset}
+Dataset yang digunakan pada studi ini diambil secara dinamis dari API Spotify.
+
+\subsection{Metrik Evaluasi}
+Untuk mengukur efektivitas desain yang kami gunakan, maka hasil
+telemetri $\Phi$ digunakan sebagai tolak ukur pembanding. Sumbu $x$
+pada desain tidak secara langsung mendeskripsikan bahwa $x$ merupakan
+popularitas (\%), tetapi dalam desain interaktif kami, akan muncul
+deskripsi daripada sumbu $x$, maka untuk menguji efektifnya
+metode ini, kita akan mencatat apakah pengguna $p$ berhasil (unfold) label
+sumbu $x$, \ldots kita hitung Rata-rata Kursor Terarah (RKT) relatif
+terhadap sumbu $x$:
+\begin{equation}
+% RKT = \frac{1}{|P|} \sum_{p \in P}{|\{i \mid i \in p \cap \Phi\}|}
+% RKT = \frac{1}{|P|} \sum_{p \in P} \Phi_p
+RKT = \frac{1}{|P|} \sum_{p \in P}{p \cap \Phi}
+% RKT = \frac{1}{|P|} \sum_{p \in P} \Phi_p
+% RKT = \frac{1}{|P|} \sum_{p \in P} |p \cap \Phi|
+% RKT = \frac{1}{|P|} \sum_{p \in P} \mathbf{1}_{\{p \in \Phi\}}
+\end{equation}
+
+\section{Hasil}
+\textit{What is (are) the measured answer(s) to the main question(s)?}\\
+
+\section{Kesimpulan}
+\textit{What is the final answer and how reliable is it? How could the experiment have been done differently or better?}\\
+
+\renewcommand{\refname}{Referensi}
+\bibliographystyle{IEEEtran}
+\bibliography{report} 
+
+\end{document}
