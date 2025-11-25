@@ -60,7 +60,29 @@ export default ({ data, width = 500, height = 500 }: Args) => {
           x2={innerWidth}
           y2={0}
           stroke="currentColor"
+          // strokeDasharray="5 4"
         />
+        <rect
+          x={0 - 10}
+          y={-20}
+          width={innerWidth+20}
+          height={20}
+          fill="transparent"
+          // fill="currentColor"
+          // onMouseEnter={() => setTooltip(true,  `🠀 niche`)}
+          // onMouseEnter={() => setTooltip(true,  `popular 🠂`)}
+          onMouseEnter={() => setTooltip(true,  `popularity (%)`)}
+          onMouseLeave={() => setTooltip(false, `popularity (%)`)}
+        />
+        {/* <text
+          x={-5}
+          y={54}
+          fill="currentColor"
+          opacity={70}
+          fontSize={15}
+        >
+          popularity %
+        </text> */}
         {range.map((r: number) => {
           const tracks = data.items
             .filter((t) => p(t.popularity) === r)
@@ -121,7 +143,7 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                 }
 
                 const handleMouseEnter = () => {
-                  setTooltip(true, t)
+                  setTooltip(true, t.name)
 
                   if (!ref.current) {
                     return
@@ -137,7 +159,7 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                 }
 
                 const handleMouseLeave = () => {
-                  setTooltip(false, t)
+                  setTooltip(false, t.name)
 
                   if (!ref.current) {
                     return
@@ -169,22 +191,27 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                 )
               })}
 
-              <circle
-                stroke="white"
-                cx={x(r)}
-                cy={0}
-                r={4}
-                fill="black"
-              />
-              <text
-                x={x(r)}
-                y={-10}
-                textAnchor="middle"
-                fill="currentColor"
-                fontSize={12}
+              <g
               >
-                {r === 0 ? "00" : r}
-              </text>
+                <circle
+                  stroke="white"
+                  cx={x(r)}
+                  cy={0}
+                  r={4}
+                  fill="black"
+                />
+                <text
+                  x={x(r)}
+                  y={-10}
+                  textAnchor="middle"
+                  fill="currentColor"
+                  fontSize={12}
+                  onMouseEnter={() => setTooltip(true,  `${r}% popular`)}
+                  onMouseLeave={() => setTooltip(false, `${r}% popular`)}
+                >
+                  {r === 0 ? "00" : r}
+                </text>
+              </g>
             </g>
           )
         })}

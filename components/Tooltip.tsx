@@ -7,7 +7,7 @@ import useTooltip from "@/hooks/useTooltip"
 import gsap from "gsap"
 
 export default () => {
-  const {show, track} = useTooltip()
+  const {show, text} = useTooltip()
   const {x, y} = useMouse()
   const wrapper  = useRef<HTMLDivElement | null>(null)
   
@@ -32,7 +32,7 @@ export default () => {
       <span
         className="p-2 border bg-black/75"
       >
-        {track?.name}
+        {text}
       </span>
     </div>
   )
