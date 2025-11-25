@@ -16,6 +16,12 @@ client secret. Next, you need to sign up for a free tier Redis
 server provided by Upstash, and put the secrets on to the
 environment variables (.env) file.
 
+Database
+--------
+
+We use supabase, but you don't need to set up anything. The
+database is used to obtain observational data (optionally).
+
 Quick Start
 -----------
 

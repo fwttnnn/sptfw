@@ -6,20 +6,42 @@ import { useRef } from "react"
 import Link from "next/link"
 
 import * as d3 from "d3"
-import spotify from "@/data/spotify.json"
 
 import useTooltip from "@/hooks/useTooltip"
+import spotify from "@/data/spotify.json"
 
 export type Args = {
   data: typeof spotify,
   size?: number,
   width?: number,
   height?: number,
+
+  /**
+   * NOTE: ignore, only used for supabase
+   */
+  __uid?: string,
 }
 
-export default ({ data, width = 500, height = 500 }: Args) => {
+export default ({ data, width = 500, height = 500, __uid }: Args) => {
   data.items.sort((t) => t.popularity)
   const setTooltip = useTooltip((state) => state.setTooltip)
+
+  /**
+   * update telemetry
+   */
+  const telemetry = {
+    axis: () => {
+      if (!__uid) {
+        return
+      }
+
+      fetch("/api/telemetry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid: __uid, type: "hover__axis" }),
+      }).catch(() => {})
+    }
+  }
 
   const margin = { top: 40, right: 15, bottom: 20, left: 15 }
   const innerWidth = width - margin.left - margin.right
@@ -71,8 +93,13 @@ export default ({ data, width = 500, height = 500 }: Args) => {
           // fill="currentColor"
           // onMouseEnter={() => setTooltip(true,  `🠀 niche`)}
           // onMouseEnter={() => setTooltip(true,  `popular 🠂`)}
-          onMouseEnter={() => setTooltip(true,  `popularity (%)`)}
-          onMouseLeave={() => setTooltip(false, `popularity (%)`)}
+          onMouseEnter={() => {
+            telemetry.axis()
+            setTooltip(true,  `popularity (%)`)
+          }}
+          onMouseLeave={() => {
+            setTooltip(false, `popularity (%)`)
+          }}
         />
         {/* <text
           x={-5}
@@ -199,6 +226,13 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                   cy={0}
                   r={4}
                   fill="black"
+                  onMouseEnter={() => {
+                    telemetry.axis()
+                    setTooltip(true, `popularity (%)`)
+                  }}
+                  onMouseLeave={() => { 
+                    setTooltip(false, `popularity (%)`)
+                  }}
                 />
                 <text
                   x={x(r)}
@@ -206,8 +240,13 @@ export default ({ data, width = 500, height = 500 }: Args) => {
                   textAnchor="middle"
                   fill="currentColor"
                   fontSize={12}
-                  onMouseEnter={() => setTooltip(true,  `${r}% popular`)}
-                  onMouseLeave={() => setTooltip(false, `${r}% popular`)}
+                  onMouseEnter={() => {
+                    telemetry.axis()
+                    setTooltip(true,  `${r}% popular`)
+                  }}
+                  onMouseLeave={() => {
+                    setTooltip(false, `${r}% popular`)
+                  }}
                 >
                   {r === 0 ? "00" : r}
                 </text>

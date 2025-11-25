@@ -3,14 +3,15 @@ import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
 
 import Chart from "@/components/Chart"
-import useProfile from "@/hooks/useProfile"
+import useProfile, { type Profile } from "@/hooks/useProfile"
 
+import supabase from "@/lib/supabase"
 import redis from "@/lib/redis"
 import api from "@/lib/spotify/api"
+
 import spotify from "@/data/spotify.json"
 
-const _getData = async () => {
-  const profile = await useProfile()
+const _getData = async (profile: Profile) => {
   if (!profile.id) return spotify
 
   const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}`)
@@ -59,7 +60,8 @@ const _getData = async () => {
 }
 
 export default async () => {
-  const authenticated: boolean = (await useProfile()).id ? true : false
+  const profile = await useProfile()
+  const authenticated: boolean = profile.id ? true : false
 
   const Body = async () => {
     if (!authenticated) {
@@ -91,7 +93,8 @@ export default async () => {
         className="flex flex-col items-center justify-center"
       >
         <Chart.Spotify
-          data={await _getData()}
+          data={await _getData(profile)}
+          __uid={profile.id}
         />
       </div>
     )
