@@ -53,6 +53,7 @@ export const getToken = async (clientId: string, code: string, verifier: string,
   })
 
   const json = await result.json()
+  console.log("token:", json)
   return json
 }
 

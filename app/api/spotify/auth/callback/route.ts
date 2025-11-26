@@ -5,25 +5,28 @@ import api from "@/lib/spotify/api"
 import pkce from "@/lib/spotify/pkce"
 
 export const GET = async (request: NextRequest) => {
-  const _url = new URL(request.url)
-  const code = _url.searchParams.get("code")!
+  const response = NextResponse.redirect(process.env.SPTFW_HOST_URI!)
+
+  const url = new URL(request.url)
+  const code = url.searchParams.get("code")
 
   if (!code) {
-    return NextResponse.json({})
+    return response
   }
 
-  const verifier = request.cookies.get("sptfw--cookie:verifier")?.value
-  const token = await pkce.getToken(process.env.SPTFW_API_CID!, code, verifier!, `${process.env.SPTFW_HOST_URI!}/api/spotify/auth/callback`)
+  const verifier = request.cookies.get("sptfw--cookie:verifier")?.value!
+  const token = await pkce.getToken(process.env.SPTFW_API_CID!,
+                                    code,
+                                    verifier,
+                                    `${process.env.SPTFW_HOST_URI!}/api/spotify/auth/callback`)
 
-  const _access = token["access_token"]
-  const profile = await api.user.profile(_access)
+  const accessToken = token["access_token"]
+  const profile = await api.user.profile(accessToken)
 
-  const top = await api.user.top(_access, 1)
+  const top = await api.user.top(accessToken, 1)
   await redis.set(`sptfw:${profile.id}`, top, {
     ex: 3 * 3600, // 3 hour(s)
   })
-
-  const response = NextResponse.redirect(process.env.SPTFW_HOST_URI!)
 
   response.cookies.set("sptfw--cookie:token/access", token["access_token"], {
     httpOnly: true,

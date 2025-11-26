@@ -20,6 +20,7 @@ export default async (token: string, depth: number): Promise<{[key: string]: any
     })
 
     const json = await result.json()
+    console.log("top:", json)
     json.items.forEach((t: any) => {
       data.items.push({
         name: t.name,
