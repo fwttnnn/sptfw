@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import Chart from "@/components/Chart"
 import useProfile from "@/hooks/useProfile"
@@ -25,7 +26,7 @@ const _getData = async (profile: Profile) => {
 
   const top = await api.user.top(accessToken, 1)
   await redis.set(`sptfw:${profile.id}`, top, {
-    ex: 3 * 3600, // 3 hour(s)
+    ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
 
   return (top as typeof spotify)
@@ -78,13 +79,37 @@ export default async () => {
         className="flex flex-col gap-[24px]"
       >
         <div
+          id="aaa"
+          className="flex justify-end gap-4 px-12 whitespace-nowrap"
+        >
+          <Link
+            href={profile.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span
+              className="text-[21px]"
+              // className="text-[clamp(10px,5vw,21px)]"
+              
+            >
+              {profile.usn}'s
+            </span>
+          </Link>
+          <Image
+            src={profile.pict}
+            alt={""}
+            width={31}
+            height={31}
+          />
+        </div>
+        <div
           className="flex justify-center px-12"
         >
           <h1
             // className="text-6xl"
             // className="text-[clamp(2rem,5vw,4rem)]"
-            // className="text-6xl text-[clamp(1rem,11.5vw,4rem)] whitespace-nowrap"
-            className="text-6xl whitespace-nowrap"
+            className="text-6xl text-[clamp(0.5rem,11.5vw,3.75rem)] whitespace-nowrap"
+            // className="text-6xl whitespace-nowrap"
           >
             spotify wrapped
           </h1>

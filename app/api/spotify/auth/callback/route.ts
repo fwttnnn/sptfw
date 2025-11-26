@@ -25,7 +25,7 @@ export const GET = async (request: NextRequest) => {
 
   const top = await api.user.top(accessToken, 1)
   await redis.set(`sptfw:${profile.id}`, top, {
-    ex: 3 * 3600, // 3 hour(s)
+    ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
 
   response.cookies.set("sptfw--cookie:token/access", token["access_token"], {

@@ -5,6 +5,10 @@ export default async (token: string): Promise<{[key: string]: any}> => {
     },
   })
 
+  /**
+   * profile --text: Check settings on developer.spotify.com/dashboard, the user may not be registered.
+   */
+
   // try {
   //   console.log("profile --text:", await result.text())
   // } catch(_) {}
