@@ -16,12 +16,8 @@ const _getData = async (profile: Profile) => {
 
   const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}`)
   if (cached) {
-    /**
-     * NOTE: I FORGOT TO ADD THIS..
-     */
-    if (cached.items[0].album.id) {
-      return cached
-    }
+    redis.del(`sptfw:${profile.id}`)
+    return cached
   }
 
   let accessToken  = (await cookies()).get("sptfw--cookie:token/access")?.value!
