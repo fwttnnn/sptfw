@@ -5,6 +5,7 @@ export default async (token: string): Promise<{[key: string]: any}> => {
     },
   })
 
+  console.log("profile --result:", result)
   const json = await result.json()
   console.log("profile:", json)
   return json
