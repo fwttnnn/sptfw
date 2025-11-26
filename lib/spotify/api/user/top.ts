@@ -19,6 +19,7 @@ export default async (token: string, depth: number): Promise<{[key: string]: any
       },
     })
 
+    console.log("top --result:", result)
     const json = await result.json()
     console.log("top:", json)
     json.items.forEach((t: any) => {
