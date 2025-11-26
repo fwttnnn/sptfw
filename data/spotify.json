@@ -3,12 +3,13 @@
     {
       "name": "🎵",
       "popularity": 83,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -21,12 +22,13 @@
     {
       "name": "🎶",
       "popularity": 77,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -39,12 +41,13 @@
     {
       "name": "🎧",
       "popularity": 38,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -57,12 +60,13 @@
     {
       "name": "🎤",
       "popularity": 71,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -75,12 +79,13 @@
     {
       "name": "📀",
       "popularity": 89,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -93,12 +98,13 @@
     {
       "name": "💿",
       "popularity": 76,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -111,12 +117,13 @@
     {
       "name": "🎹",
       "popularity": 72,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -129,12 +136,13 @@
     {
       "name": "🥁",
       "popularity": 87,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -147,12 +155,13 @@
     {
       "name": "🎸",
       "popularity": 78,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -165,12 +174,13 @@
     {
       "name": "🎻",
       "popularity": 47,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -183,12 +193,13 @@
     {
       "name": "🎷",
       "popularity": 78,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -201,12 +212,13 @@
     {
       "name": "🎺",
       "popularity": 53,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -219,12 +231,13 @@
     {
       "name": "🪗",
       "popularity": 55,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -237,12 +250,13 @@
     {
       "name": "🪘",
       "popularity": 36,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -255,12 +269,13 @@
     {
       "name": "🪕",
       "popularity": 74,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -273,12 +288,13 @@
     {
       "name": "✨",
       "popularity": 61,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -291,12 +307,13 @@
     {
       "name": "⭐",
       "popularity": 74,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -309,12 +326,13 @@
     {
       "name": "🌟",
       "popularity": 53,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -327,12 +345,13 @@
     {
       "name": "💫",
       "popularity": 63,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -345,12 +364,13 @@
     {
       "name": "🔥",
       "popularity": 74,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -363,12 +383,13 @@
     {
       "name": "⚡",
       "popularity": 78,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -381,12 +402,13 @@
     {
       "name": "🌈",
       "popularity": 58,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -399,12 +421,13 @@
     {
       "name": "🌙",
       "popularity": 63,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -417,12 +440,13 @@
     {
       "name": "☀️",
       "popularity": 61,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -435,12 +459,13 @@
     {
       "name": "🌤️",
       "popularity": 43,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -453,12 +478,13 @@
     {
       "name": "⛅",
       "popularity": 83,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -471,12 +497,13 @@
     {
       "name": "☁️",
       "popularity": 74,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -489,12 +516,13 @@
     {
       "name": "🌧️",
       "popularity": 47,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -507,12 +535,13 @@
     {
       "name": "❄️",
       "popularity": 76,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -525,12 +554,13 @@
     {
       "name": "🌬️",
       "popularity": 46,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -543,12 +573,13 @@
     {
       "name": "🍀",
       "popularity": 64,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -561,12 +592,13 @@
     {
       "name": "🌿",
       "popularity": 59,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -579,12 +611,13 @@
     {
       "name": "🍃",
       "popularity": 55,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -597,12 +630,13 @@
     {
       "name": "🌸",
       "popularity": 69,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -615,12 +649,13 @@
     {
       "name": "🌺",
       "popularity": 81,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -633,12 +668,13 @@
     {
       "name": "🌼",
       "popularity": 47,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -651,12 +687,13 @@
     {
       "name": "🌻",
       "popularity": 76,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -669,12 +706,13 @@
     {
       "name": "🌙",
       "popularity": 47,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -687,12 +725,13 @@
     {
       "name": "🌕",
       "popularity": 62,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -705,12 +744,13 @@
     {
       "name": "🌑",
       "popularity": 53,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -723,12 +763,13 @@
     {
       "name": "💥",
       "popularity": 70,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -741,12 +782,13 @@
     {
       "name": "🌀",
       "popularity": 60,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -759,12 +801,13 @@
     {
       "name": "⭕",
       "popularity": 57,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -777,12 +820,13 @@
     {
       "name": "🟣",
       "popularity": 60,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -795,12 +839,13 @@
     {
       "name": "🔵",
       "popularity": 66,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -813,12 +858,13 @@
     {
       "name": "🟢",
       "popularity": 79,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -831,12 +877,13 @@
     {
       "name": "🟡",
       "popularity": 44,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -849,12 +896,13 @@
     {
       "name": "🟠",
       "popularity": 54,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -867,12 +915,13 @@
     {
       "name": "🔴",
       "popularity": 62,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [
@@ -885,12 +934,13 @@
     {
       "name": "⚪",
       "popularity": 51,
-      "url": "/api/spotify/auth/login",
+      "url": "/api/spotify/auth/logout",
       "album": {
-        "name": "?",
+        "name": "__name_album_default",
+        "id": "__id_album_default",
         "artists": [
           {
-            "name": "?"
+            "name": "__name_artist_default"
           }
         ],
         "images": [

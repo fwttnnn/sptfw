@@ -1,15 +1,15 @@
 import Link from "next/link"
-import { cookies } from "next/headers"
-import { NextResponse } from "next/server"
 
 import Chart from "@/components/Chart"
-import useProfile, { type Profile } from "@/hooks/useProfile"
+import useProfile from "@/hooks/useProfile"
 
-import supabase from "@/lib/supabase"
-import redis from "@/lib/redis"
-import api from "@/lib/spotify/api"
+import { cookies } from "next/headers"
+import { Profile } from "@/hooks/useProfile"
 
 import spotify from "@/data/spotify.json"
+
+import redis from "@/lib/redis"
+import api from "@/lib/spotify/api"
 
 const _getData = async (profile: Profile) => {
   if (!profile.id) return spotify
@@ -17,39 +17,11 @@ const _getData = async (profile: Profile) => {
   const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}`)
   if (cached) return cached
 
-  const _cookies = await cookies()
-
-  const refreshToken = _cookies.get("sptfw--cookie:token/refresh")?.value!
-  let accessToken    = _cookies.get("sptfw--cookie:token/access")?.value!
-
-  if (!accessToken && refreshToken) {
-    const token = await api.token.refresh(refreshToken)
-    accessToken = token["access_token"]
-
-    const response = NextResponse.next()
-    response.cookies.set("sptfw--cookie:token/access", token["access_token"], {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      path: "/",
-      sameSite: "lax",
-      maxAge: token["expires_in"] || 3600, // 1 hour(s)
-    })
-
-    /**
-     * SEE: https://developer.spotify.com/documentation/web-api/tutorials/refreshing-tokens#example
-     */
-    if (token["refresh_token"]) {
-      response.cookies.set("sptfw--cookie:token/refresh", token["refresh_token"], {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        path: "/",
-        sameSite: "lax",
-        maxAge: 60 * 60 * 24 * 365, // 1 year(s)
-      })
-    }
+  let accessToken  = (await cookies()).get("sptfw--cookie:token/access")?.value!
+  if (!accessToken) {
+    console.error("this doesn't get refreshed? should be after middleware")
+    return spotify
   }
-
-  if (!accessToken) return spotify
 
   const top = await api.user.top(accessToken, 1)
   await redis.set(`sptfw:${profile.id}`, top, {

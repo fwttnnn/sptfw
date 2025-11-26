@@ -18,14 +18,16 @@ spotify.items = spotify.items.map((t, i) => {
     name: EMOJIS[i],
     popularity: t.popularity,
     // url: t.external_urls.spotify,
-    url: "/api/spotify/auth/login",
+    url: "/api/spotify/auth/logout",
     album: {
       // name: t.album.name,
-      name: "?",
+      name: "__name_album_default",
+      // id: t.album.id,
+      id: "__id_album_default",
       artists: [
         {
           // name: t.album.artists[0].name,
-          name: "?",
+          name: "__name_artist_default",
         },
       ],
       images: [
@@ -38,4 +40,4 @@ spotify.items = spotify.items.map((t, i) => {
   }
 })
 
-fs.writeFileSync("data/_spotify.json", JSON.stringify(spotify, null, 2), "utf-8")
+fs.writeFileSync("data/spotify.json", JSON.stringify(spotify, null, 2), "utf-8")

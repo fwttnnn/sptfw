@@ -41,6 +41,14 @@ export const GET = async (request: NextRequest) => {
     maxAge: 60 * 60 * 24 * 365, // 1 year(s)
   })
 
+  response.cookies.set("sptfw--cookie:token/code", code, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    path: "/",
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 365, // 1 year(s)
+  })
+
   response.cookies.set("sptfw--cookie:profile/id", profile["id"], {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

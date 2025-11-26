@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 
 export const GET = async (request: NextRequest) => {
-  const response = NextResponse.json({})
+  const response = NextResponse.redirect(process.env.SPTFW_HOST_URI!)
   response.cookies.delete("sptfw--cookie:verifier")
   response.cookies.delete("sptfw--cookie:token/access")
   response.cookies.delete("sptfw--cookie:token/refresh")

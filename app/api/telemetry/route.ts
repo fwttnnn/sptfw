@@ -17,9 +17,9 @@ export const POST = async (request: NextRequest) => {
       break
     }
     case "hover__album": {
-      // await supabase
-      //   .from("hover__album")
-      //   .upsert({ uid, aid }, { onConflict: "uid, aid" })
+      await supabase
+        .from("hover__album")
+        .upsert({ uid, aid }, { onConflict: "uid, aid" })
       break
     }
     default:

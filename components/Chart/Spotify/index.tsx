@@ -40,6 +40,17 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid: __uid, type: "hover__axis" }),
       }).catch(() => {})
+    },
+    album: (aid: string) => {
+      if (!__uid) {
+        return
+      }
+
+      fetch("/api/telemetry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid: __uid, aid: aid, type: "hover__album" }),
+      }).catch(() => {})
     }
   }
 
@@ -170,6 +181,7 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
                 }
 
                 const handleMouseEnter = () => {
+                  telemetry.album(t.album.id)
                   setTooltip(true, t.name)
 
                   if (!ref.current) {
