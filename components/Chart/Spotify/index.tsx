@@ -1,7 +1,7 @@
 "use client"
 
 import gsap from "gsap"
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 
 import Link from "next/link"
 
@@ -22,41 +22,61 @@ export type Args = {
   __uid?: string,
 }
 
+/**
+ * update telemetry
+ */
+const telemetry = {
+  axis: (uid: string | undefined) => {
+    if (!uid) {
+      return
+    }
+
+    fetch("/api/telemetry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: uid, type: "hover__axis" }),
+    }).catch(() => {})
+  },
+  album: (uid: string | undefined, aid: string) => {
+    if (!uid) {
+      return
+    }
+
+    fetch("/api/telemetry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ uid: uid, aid: aid, type: "hover__album" }),
+    }).catch(() => {})
+  }
+}
+
 export default ({ data, width = 500, height = 500, __uid }: Args) => {
+  const [_width, setWidth] = useState(width)
+  const [_height, setHeight] = useState(height)
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     const w = window.innerWidth
+  //     if (w > width) {
+  //       setWidth((_: number) => width)
+  //       return
+  //     }
+
+  //     setWidth((_: number) => w * 0.95)
+  //   }
+
+  //   handleResize()
+
+  //   window.addEventListener("resize", handleResize)
+  //   return () => window.removeEventListener("resize", handleResize)
+  // }, [])
+
   data.items.sort((t) => t.popularity)
   const setTooltip = useTooltip((state) => state.setTooltip)
 
-  /**
-   * update telemetry
-   */
-  const telemetry = {
-    axis: () => {
-      if (!__uid) {
-        return
-      }
-
-      fetch("/api/telemetry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uid: __uid, type: "hover__axis" }),
-      }).catch(() => {})
-    },
-    album: (aid: string) => {
-      if (!__uid) {
-        return
-      }
-
-      fetch("/api/telemetry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ uid: __uid, aid: aid, type: "hover__album" }),
-      }).catch(() => {})
-    }
-  }
-
-  const margin = { top: 40, right: 15, bottom: 20, left: 15 }
-  const innerWidth = width - margin.left - margin.right
-  const innerHeight = height - margin.top - margin.bottom
+  const margin = { top: 40, right: 10, bottom: 20, left: 20 }
+  const innerWidth = _width - margin.left - margin.right
+  const innerHeight = _height - margin.top - margin.bottom
 
   const range = d3.range(0, 100 + 1, 10)
   const p = d3.scaleQuantize()
@@ -75,14 +95,17 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
     return 15 + tracks.length * (rectSize + rectSpacing)
   })
 
-  const _height = margin.top
-                + Math.max(...bucketHeights)
-                + margin.bottom
+  const _actualHeight = margin.top
+                      + Math.max(...bucketHeights)
+                      + margin.bottom
 
   return (
     <svg
-      width={width}
-      height={_height}
+      width="100%"
+      height="100%"
+      viewBox={`0 0 ${_width+10} ${_actualHeight}`}  // original D3 width/height
+      preserveAspectRatio="xMidYMin meet"
+      // preserveAspectRatio="xMidYMid meet"
     >
       <g
         transform={`translate(${margin.left},${margin.top})`}
@@ -105,7 +128,7 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
           // onMouseEnter={() => setTooltip(true,  `🠀 niche`)}
           // onMouseEnter={() => setTooltip(true,  `popular 🠂`)}
           onMouseEnter={() => {
-            telemetry.axis()
+            telemetry.axis(__uid)
             setTooltip(true,  `popularity (%)`)
           }}
           onMouseLeave={() => {
@@ -181,7 +204,7 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
                 }
 
                 const handleMouseEnter = () => {
-                  telemetry.album(t.album.id)
+                  telemetry.album(__uid, t.album.id)
                   setTooltip(true, t.name)
 
                   if (!ref.current) {
@@ -239,7 +262,7 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
                   r={4}
                   fill="black"
                   onMouseEnter={() => {
-                    telemetry.axis()
+                    telemetry.axis(__uid)
                     setTooltip(true, `popularity (%)`)
                   }}
                   onMouseLeave={() => { 
@@ -253,7 +276,7 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
                   fill="currentColor"
                   fontSize={12}
                   onMouseEnter={() => {
-                    telemetry.axis()
+                    telemetry.axis(__uid)
                     setTooltip(true,  `${r}% popular`)
                   }}
                   onMouseLeave={() => {

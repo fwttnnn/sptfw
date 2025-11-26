@@ -77,11 +77,18 @@ export default async () => {
       <div
         className="flex flex-col gap-[24px]"
       >
-        <h1
-          className="text-6xl text-center"
+        <div
+          className="flex justify-center px-12"
         >
-          spotify wrapped
-        </h1>
+          <h1
+            // className="text-6xl"
+            // className="text-[clamp(2rem,5vw,4rem)]"
+            // className="text-6xl text-[clamp(1rem,11.5vw,4rem)] whitespace-nowrap"
+            className="text-6xl whitespace-nowrap"
+          >
+            spotify wrapped
+          </h1>
+        </div>
         <Body />
       </div>
     </main>

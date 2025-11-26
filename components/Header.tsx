@@ -19,7 +19,7 @@ export default async () => {
        * TODO: spacing (pads, margs) needs work
        */}
       <div
-        className="flex justify-end gap-4 px-12"
+        className="flex justify-end gap-4 px-12 whitespace-nowrap"
       >
         <Link
           href={profile.url}
