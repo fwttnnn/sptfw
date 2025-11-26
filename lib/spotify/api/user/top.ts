@@ -28,6 +28,7 @@ export default async (token: string, depth: number): Promise<{[key: string]: any
         popularity: t.popularity,
         album: {
           name: t.album.name,
+          id: t.album.id,
           // artists: t.album.artists.map((a: any) => ({
           //   name: a.name,
           // })),
