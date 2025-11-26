@@ -5,9 +5,9 @@ export default async (token: string): Promise<{[key: string]: any}> => {
     },
   })
 
-  try {
-    console.log("profile --text:", await result.text())
-  } catch(_) {}
+  // try {
+  //   console.log("profile --text:", await result.text())
+  // } catch(_) {}
 
   console.log("profile --result:", result)
   const json = await result.json()
