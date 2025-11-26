@@ -13,6 +13,8 @@
 data/**/*
 !data/spotify.json
 
+/paper
+
 # testing
 /coverage
 
