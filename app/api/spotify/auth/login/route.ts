@@ -2,13 +2,9 @@ import { NextRequest, NextResponse } from "next/server"
 import pkce from "@/lib/spotify/pkce"
 
 export const GET = async (request: NextRequest) => {
-  const scopes = ["playlist-read-private",
-                  "playlist-read-collaborative",
-                  "user-top-read",
+  const scopes = ["user-top-read",
                   "user-read-private",
-                  "user-read-email",
-                  // "user-read-recently-played",
-                  "user-library-read"]
+                  "user-read-email"]
 
   const verifier = pkce.generateCodeVerifier(128)
   const challenge = await pkce.generateCodeChallenge(verifier)
