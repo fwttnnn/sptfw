@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server"
 import pkce from "@/lib/spotify/pkce"
 
+/**
+ * what the hell..
+ */
+export const dynamic = "force-dynamic"
+export const fetchCache = "force-no-store"
+
 export const GET = async (request: NextRequest) => {
   const scopes = ["user-top-read",
                   "user-read-private",
