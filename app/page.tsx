@@ -40,23 +40,29 @@ export default async () => {
     if (!authenticated) {
       return (
         <div
-          className="mx-12 my-3.5"
+          className="mx-12 my-3.5 text-xl"
         >
           <p
-            className="text-xl"
+            className="text-justify"
           >
-            get yours now, {""}
-            <Link
-              href={"/api/spotify/auth/login"}
-              className="underline"
-              style={{
-                color: "#1ed760"
-              }}
-            >
-              login
-            </Link>
-            {""} using spotify
+            how <span className="underline decoration-wavy">mediocre</span> is your taste in music? let data speaks for itself.
           </p>
+          <br />
+          <p
+            className="text-justify"
+          >
+            you will get insights from within 1 week of listening (time range is customizable).
+          </p>
+          <br />
+          <Link
+            href={"/api/spotify/auth/login"}
+            className="underline decoration-wavy"
+            style={{
+              color: "#1ed760"
+            }}
+          >
+            login here!
+          </Link>
         </div>
       )
     }
