@@ -11,11 +11,12 @@ import spotify from "@/data/spotify.json"
 
 import redis from "@/lib/redis"
 import api from "@/lib/spotify/api"
+import { Range } from "@/lib/spotify/api/user/top"
 
-const _getData = async (profile: Profile) => {
+const _getData = async (profile: Profile, range: Range) => {
   if (!profile.id) return spotify
 
-  const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}`)
+  const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}/${range}`)
   if (cached) return cached
 
   let accessToken  = (await cookies()).get("sptfw--cookie:token/access")?.value!
@@ -24,7 +25,7 @@ const _getData = async (profile: Profile) => {
     return spotify
   }
 
-  const top = await api.user.top(accessToken, 1)
+  const top = await api.user.top(accessToken, range, 1)
   await redis.set(`sptfw:${profile.id}`, top, {
     ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
@@ -32,7 +33,12 @@ const _getData = async (profile: Profile) => {
   return (top as typeof spotify)
 }
 
-export default async () => {
+export default async ({ searchParams }: { searchParams: { [key: string]: string | undefined }}) => {
+  const ranges: Range[] = ["short", "medium", "long"];
+  const range: Range = ranges.includes(searchParams["range"] as Range)
+    ? (searchParams["range"] as Range)
+    : "short"
+
   const profile = await useProfile()
   const authenticated: boolean = profile.id ? true : false
 
@@ -72,7 +78,7 @@ export default async () => {
         className="flex flex-col items-center justify-center"
       >
         <Chart.Spotify
-          data={await _getData(profile)}
+          data={await _getData(profile, range)}
           __uid={profile.id}
         />
       </div>

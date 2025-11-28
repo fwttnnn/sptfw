@@ -1,16 +1,14 @@
-export default async (token: string, depth: number): Promise<{[key: string]: any}> => {
+export type Range = "short" | "medium" | "long"
+
+export default async (token: string, range: Range, depth: number): Promise<{[key: string]: any}> => {
   let data: any = {
     items: [],
     next: null,
   }
 
   for (let i = 0; i < depth; i++) {
-    const timeRange = "short_term"
-    // const timeRange = "medium_term"
-    // const timeRange = "long_term"
-
     const params = new URLSearchParams()
-    params.append("time_range", timeRange)
+    params.append("time_range", `${range}_term`)
     params.append("limit", String(50))
 
     const result = await fetch(`https://api.spotify.com/v1/me/top/tracks?${params.toString()}`, {
