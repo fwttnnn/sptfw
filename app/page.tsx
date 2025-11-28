@@ -26,7 +26,7 @@ const _getData = async (profile: Profile, range: Range) => {
   }
 
   const top = await api.user.top(accessToken, range, 1)
-  await redis.set(`sptfw:${profile.id}`, top, {
+  await redis.set(`sptfw:${profile.id}/${range}`, top, {
     ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
 
