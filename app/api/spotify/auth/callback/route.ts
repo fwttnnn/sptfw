@@ -24,7 +24,7 @@ export const GET = async (request: NextRequest) => {
   const profile = await api.user.profile(accessToken)
 
   const top = await api.user.top(accessToken, "short", 1)
-  await redis.set(`sptfw:${profile.id}`, top, {
+  await redis.set(`sptfw:${profile.id}/short`, top, {
     ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
 
