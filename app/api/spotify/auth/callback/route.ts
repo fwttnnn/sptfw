@@ -68,16 +68,20 @@ export const GET = async (request: NextRequest) => {
     maxAge: 60 * 60 * 24 * 365, // 1 year(s)
   })
 
+  const imageURL = profile["images"]?.[0]?.["url"] || ""
+
   /**
    * NOTE: store only the image id
    */
-  response.cookies.set("sptfw--cookie:profile/pict", profile["images"][0]["url"].split("/").pop(), {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-    sameSite: "lax",
-    maxAge: 60 * 60 * 24 * 365, // 1 year(s)
-  })
+  if (imageURL) {
+    response.cookies.set("sptfw--cookie:profile/pict", imageURL.split("/").pop()!, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 365, // 1 year(s)
+    })
+  }
 
   return response
 }

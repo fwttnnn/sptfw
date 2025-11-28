@@ -14,7 +14,7 @@ export default async (): Promise<Profile> => {
   const usn  = _cookies.get("sptfw--cookie:profile/usn")?.value
   const pict = _cookies.get("sptfw--cookie:profile/pict")?.value
 
-  if (!id || !usn || !pict) {
+  if (!id) {
     return {
       id: "",
       url: "/",
@@ -28,7 +28,9 @@ export default async (): Promise<Profile> => {
   return {
     id,
     url: `https://open.spotify.com/user/${id}`,
-    usn,
-    pict: `https://i.scdn.co/image/${pict}`
+    usn: usn!,
+    pict: pict
+            ? `https://i.scdn.co/image/${pict}`
+            : "https://i.pinimg.com/736x/87/67/20/876720e867c3cf66e6ba5f2ebcd84191.jpg"
   }
 }
