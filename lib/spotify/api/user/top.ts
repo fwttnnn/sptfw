@@ -35,12 +35,12 @@ export default async (token: string, depth: number): Promise<{[key: string]: any
           // })),
           artists: [
             {
-              name: t.album.artists[0].name,
+              name: t.album?.artists?.[0]?.name || "unknown",
             },
           ],
           images: [
             {
-              url: t.album.images[0].url,
+              url: t.album?.images?.[0]?.url || "https://i.pinimg.com/736x/68/fd/b0/68fdb089f4f34de82fd6d18f00b95f1e.jpg"
             },
           ],
         },
