@@ -34,6 +34,8 @@ const _getData = async (profile: Profile, range: Range) => {
 }
 
 export default async ({ searchParams }: { searchParams: { [key: string]: string | undefined }}) => {
+  searchParams = await searchParams
+
   const ranges: Range[] = ["short", "medium", "long"];
   const range: Range = ranges.includes(searchParams["range"] as Range)
     ? (searchParams["range"] as Range)
