@@ -10,6 +10,7 @@ export default async (token: string, range: Range, depth: number): Promise<{[key
     const params = new URLSearchParams()
     params.append("time_range", `${range}_term`)
     params.append("limit", String(50))
+    params.append("offset", String(50 * i))
 
     const result = await fetch(`https://api.spotify.com/v1/me/top/tracks?${params.toString()}`, {
       headers: {

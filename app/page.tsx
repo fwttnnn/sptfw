@@ -13,10 +13,10 @@ import redis from "@/lib/redis"
 import api from "@/lib/spotify/api"
 import { Range } from "@/lib/spotify/api/user/top"
 
-const _getData = async (profile: Profile, range: Range) => {
+const _getData = async (profile: Profile, range: Range, depth: number) => {
   if (!profile.id) return spotify
 
-  const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}/${range}`)
+  const cached: typeof spotify | null = await redis.get(`sptfw:${profile.id}/${range}@${depth}`)
   if (cached) return cached
 
   let accessToken  = (await cookies()).get("sptfw--cookie:token/access")?.value!
@@ -25,8 +25,8 @@ const _getData = async (profile: Profile, range: Range) => {
     return spotify
   }
 
-  const top = await api.user.top(accessToken, range, 1)
-  await redis.set(`sptfw:${profile.id}/${range}`, top, {
+  const top = await api.user.top(accessToken, range, depth)
+  await redis.set(`sptfw:${profile.id}/${range}@${depth}`, top, {
     ex: 7 * 24 * 60 * 60, // 1 week(s)
   })
 
@@ -40,7 +40,11 @@ export default async ({ searchParams }: { searchParams: { [key: string]: string 
   const range: Range = ranges.includes(searchParams["range"] as Range)
     ? (searchParams["range"] as Range)
     : "short"
-
+  
+  const depth: number = searchParams["depth"]
+    ? Math.max(Number(searchParams["depth"]), 1)
+    : 1
+  
   const profile = await useProfile()
   const authenticated: boolean = profile.id ? true : false
 
@@ -80,7 +84,7 @@ export default async ({ searchParams }: { searchParams: { [key: string]: string 
         className="flex flex-col items-center justify-center"
       >
         <Chart.Spotify
-          data={await _getData(profile, range)}
+          data={await _getData(profile, range, depth)}
           __uid={profile.id}
         />
       </div>
