@@ -54,23 +54,6 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
   const [_width, setWidth] = useState(width)
   const [_height, setHeight] = useState(height)
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     const w = window.innerWidth
-  //     if (w > width) {
-  //       setWidth((_: number) => width)
-  //       return
-  //     }
-
-  //     setWidth((_: number) => w * 0.95)
-  //   }
-
-  //   handleResize()
-
-  //   window.addEventListener("resize", handleResize)
-  //   return () => window.removeEventListener("resize", handleResize)
-  // }, [])
-
   data.items.sort((t) => t.popularity)
   const setTooltip = useTooltip((state) => state.setTooltip)
 
@@ -116,7 +99,6 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
           x2={innerWidth}
           y2={0}
           stroke="currentColor"
-          // strokeDasharray="5 4"
         />
         <rect
           x={0 - 10}
@@ -124,9 +106,6 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
           width={innerWidth+20}
           height={20}
           fill="transparent"
-          // fill="currentColor"
-          // onMouseEnter={() => setTooltip(true,  `🠀 niche`)}
-          // onMouseEnter={() => setTooltip(true,  `popular 🠂`)}
           onMouseEnter={() => {
             telemetry.axis(__uid)
             setTooltip(true,  `popularity (%)`)
@@ -135,15 +114,6 @@ export default ({ data, width = 500, height = 500, __uid }: Args) => {
             setTooltip(false, `popularity (%)`)
           }}
         />
-        {/* <text
-          x={-5}
-          y={54}
-          fill="currentColor"
-          opacity={70}
-          fontSize={15}
-        >
-          popularity %
-        </text> */}
         {range.map((r: number) => {
           const tracks = data.items
             .filter((t) => p(t.popularity) === r)
