@@ -44,3 +44,17 @@ Install the dependencies using your favorite package manager:
 Start the app, and head to http://127.0.0.1:3000/:
 
     yarn dev
+
+Parameters
+----------
+
+There's some hidden features you can tweak:
+
+    - Time Range: controls how recent the data is, which you can
+      toy with via params: (http://127.0.0.1:3000/?range=medium)
+      where range can be either "short" | "medium" | "long",
+      defaults to "short".
+
+    - Depth: controls how many song(s) is retrieved, which you
+      can toy with via params: (http://127.0.0.1:3000/?depth=5)
+      where depth is a positive number (>= 1), defaults to 1.
